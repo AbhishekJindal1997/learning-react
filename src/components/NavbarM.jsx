@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-      <Link class='navbar-brand' to='#'>
+    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+      <Link className='navbar-brand' to='#'>
         Vidly
       </Link>
       <button
-        class='navbar-toggler'
+        className='navbar-toggler'
         type='button'
         data-toggle='collapse'
         data-target='#navbarNav'
@@ -16,22 +16,22 @@ const Navbar = () => {
         aria-expanded='false'
         aria-label='Toggle navigation'
       >
-        <span class='navbar-toggler-icon'></span>
+        <span className='navbar-toggler-icon'></span>
       </button>
-      <div class='collapse navbar-collapse' id='navbarNav'>
-        <ul class='navbar-nav'>
-          <li class='nav-item active'>
-            <Link class='nav-link' to='/movies'>
-              Movies <span class='sr-only'>(current)</span>
+      <div className='collapse navbar-collapse' id='navbarNav'>
+        <ul className='navbar-nav'>
+          <li className='nav-item active'>
+            <Link className='nav-link' to='/movies'>
+              Movies <span className='sr-only'>(current)</span>
             </Link>
           </li>
-          <li class='nav-item'>
-            <Link class='nav-link' to='/customers'>
+          <li className='nav-item'>
+            <Link className='nav-link' to='/customers'>
               Customers
             </Link>
           </li>
-          <li class='nav-item'>
-            <Link class='nav-link' to='/rentals'>
+          <li className='nav-item'>
+            <Link className='nav-link' to='/rentals'>
               Rentals
             </Link>
           </li>

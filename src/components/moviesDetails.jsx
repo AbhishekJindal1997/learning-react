@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
-const MoviesDetails = () => {
+const MoviesDetails = ({ movieid }) => {
+  console.log(movieid);
   return (
     <>
-      <h1>uhu</h1>
+      <h1>uhu{movieid}</h1>
+      <button>Save</button>
     </>
   );
 };

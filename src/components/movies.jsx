@@ -6,6 +6,8 @@ import MoviesTable from "./moviesTable";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
 import _ from "lodash";
+import { Redirect, Route, Switch } from "react-router-dom";
+import MoviesDetails from "./moviesDetails";
 
 class Movies extends Component {
   state = {
@@ -78,30 +80,38 @@ class Movies extends Component {
     const movies = paginate(sorted, currentPage, pageSize);
 
     return (
-      <div className='row'>
-        <div className='col-3'>
-          <ListGroup
-            onItemSelect={this.handleGenresSelect}
-            items={genres}
-            selectedItem={selectedGenre}
-          />
+      <>
+        <Route
+          path='/movies/:id'
+          render={(props) => (
+            <MoviesDetails movieid={this.state.movies._id} {...props} />
+          )}
+        />
+        <div className='row'>
+          <div className='col-3'>
+            <ListGroup
+              onItemSelect={this.handleGenresSelect}
+              items={genres}
+              selectedItem={selectedGenre}
+            />
+          </div>
+          <div className='col'>
+            <span>Showing {filtered.length} movies in the database</span>
+            <MoviesTable
+              movies={movies}
+              onDelete={this.handleDelete}
+              onLike={this.handleLike}
+              onSort={this.handleSort}
+            />
+            <Pagination
+              itemsCount={filtered.length}
+              pageSize={pageSize}
+              onPageChange={this.handlePageChange}
+              currentPage={currentPage}
+            />
+          </div>
         </div>
-        <div className='col'>
-          <span>Showing {filtered.length} movies in the database</span>
-          <MoviesTable
-            movies={movies}
-            onDelete={this.handleDelete}
-            onLike={this.handleLike}
-            onSort={this.handleSort}
-          />
-          <Pagination
-            itemsCount={filtered.length}
-            pageSize={pageSize}
-            onPageChange={this.handlePageChange}
-            currentPage={currentPage}
-          />
-        </div>
-      </div>
+      </>
     );
   }
 }

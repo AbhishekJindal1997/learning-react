@@ -27,7 +27,7 @@ const MoiesTable = (props) => {
         {movies.map((movie) => (
           <tr key={movie._id}>
             <td>
-              <Link to='/movies/:id'> {movie.title} </Link>
+              <Link to={`/movies/${movie._id}`}> {movie.title} </Link>
             </td>
 
             <td>{movie.genre.name}</td>

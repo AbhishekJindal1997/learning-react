@@ -7,7 +7,9 @@ import Customers from "./components/customers";
 import Rentals from "./components/Rentals";
 import NotFound from "./components/notFound";
 import Home from "./components/home";
+import MoviesDetails from "./components/moviesDetails";
 import "./App.css";
+import { getMovies } from "./services/fakeMovieService";
 
 class App extends Component {
   state = {
@@ -17,6 +19,7 @@ class App extends Component {
       { id: 3, value: 0 },
       { id: 4, value: 0 },
     ],
+    movies: getMovies(),
   };
 
   constructor() {
@@ -80,6 +83,12 @@ class App extends Component {
           />
         </main> */}
         <Switch>
+          <Route
+            path='/movies/:id'
+            render={(props) => (
+              <MoviesDetails movieid={this.state.movies._id} />
+            )}
+          />
           <Route path='/movies' component={Movies} />
           <Route path='/customers' component={Customers} />
           <Route path='/rentals' component={Rentals} />

@@ -6,8 +6,6 @@ import MoviesTable from "./moviesTable";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
 import _ from "lodash";
-import { Redirect, Route, Switch } from "react-router-dom";
-import MoviesDetails from "./moviesDetails";
 
 class Movies extends Component {
   state = {
@@ -81,12 +79,6 @@ class Movies extends Component {
 
     return (
       <>
-        <Route
-          path='/movies/:id'
-          render={(props) => (
-            <MoviesDetails movieid={this.state.movies._id} {...props} />
-          )}
-        />
         <div className='row'>
           <div className='col-3'>
             <ListGroup
